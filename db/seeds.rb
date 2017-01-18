@@ -27,13 +27,21 @@ room_101 = Show.create({
 # USERS
 User.delete_all
 
-matthew = User.create first_name: "Matthew", last_name: "Jeorrett"
-catriona = User.create first_name: "Catriona", last_name: "Jeorrett"
-ben = User.create first_name: "Ben", last_name: "Thompson"
+matthew = User.create(
+  email: "matthew@jeorrett.com",
+  password: "secret",
+  password_confirmation: "secret"
+)
+
+catriona = User.create(
+  email: "catriona@jeorrett.com",
+  password: "hewhew",
+  password_confirmation: "hewhew",
+)
 
 # FAVOURITES
 Favourite.delete_all
 
 Favourite.create user_id: matthew.id, show_id: gbbo.id
 Favourite.create user_id: catriona.id, show_id: gbbo.id
-Favourite.create user_id: ben.id, show_id: room_101.id
+Favourite.create user_id: catriona.id, show_id: room_101.id
